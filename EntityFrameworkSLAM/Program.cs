@@ -69,13 +69,41 @@ namespace EntityFrameworkSLAM
 
                 var requete = from s in oracleContexte.SEMINAIREs
                               join COUR in oracleContexte.COURS on s.CODECOURS equals COUR.CODECOURS
-                              select s;
-                var lesSeminaires = requete.ToList();
+                              group s by new { s.CODECOURS, s.COUR.LIBELLECOURS } into groupEmployes
+                              select new
+                              {
+                                  Cours = groupEmployes.Key.CODECOURS,
+                                  Libelle = groupEmployes.Key.LIBELLECOURS,
+                                  Nombre = groupEmployes.Count()
+                              };
 
-                foreach(var unSeminaire in lesSeminaires)
+
+                
+                
+
+                var lesSeminaires = requete.ToList();
+                
+
+                foreach (var unSeminaire in lesSeminaires)
                 {
-                    Console.WriteLine(unSeminaire.CODESEMI + " - " + unSeminaire.CODECOURS + " - " + unSeminaire.COUR.LIBELLECOURS);
+                    Console.WriteLine(unSeminaire.Libelle + " - " + unSeminaire.Cours + " - " + unSeminaire.Nombre);
+
+
+                    var requeteDate = from s in oracleContexte.SEMINAIREs
+                                      where s.CODECOURS == unSeminaire.Cours
+                                      select s;
+
+                    var lesDates = requeteDate.ToList();
+
+                    foreach (var uneDate in lesDates)
+                    {
+
+
+                        Console.WriteLine("                            " + uneDate.DATEDEBUTSEM);
+                    }
                 }
+
+
 
             }
 
