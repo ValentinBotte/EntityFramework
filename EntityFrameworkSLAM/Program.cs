@@ -47,6 +47,26 @@ namespace EntityFrameworkSLAM
 
                 var employeId = requeteEmployesById.First();
                 Console.Write(employeId.NOMEMP + " - " + employeId.PRENOMEMP + " - " + employeId.SALAIRE);
+
+                Console.WriteLine("-----------------------------------");
+
+                var idEmployeBis = 33;
+                var requeteEmployesByIdBis = from EMPLOYE in oracleContexte.EMPLOYEs
+                                          where EMPLOYE.NUMEMP == idEmployeBis
+                                          select EMPLOYE;
+
+                var employeIdBis = requeteEmployesByIdBis.FirstOrDefault();
+
+                if(employeIdBis != null)
+                {
+                    Console.Write(employeIdBis.NOMEMP + " - " + employeIdBis.PRENOMEMP + " - " + employeIdBis.SALAIRE);
+                }else
+                {
+                    Console.WriteLine("L'employé numéro " + idEmploye + " n'existe pas.");
+                }
+
+                
+
             }
 
            
