@@ -1,0 +1,175 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="CoursAdoModel.Store" Provider="Oracle.ManagedDataAccess.Client" ProviderManifestToken="11.2" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="COURS">
+    <Key>
+      <PropertyRef Name="CODECOURS" />
+    </Key>
+    <Property Name="CODECOURS" Type="varchar2" MaxLength="6" Nullable="false" />
+    <Property Name="LIBELLECOURS" Type="varchar2" MaxLength="35" Nullable="false" />
+    <Property Name="NBJOURS" Type="number" Precision="38" Scale="0" Nullable="false" />
+  </EntityType>
+  <EntityType Name="EMPLOYE">
+    <Key>
+      <PropertyRef Name="NUMEMP" />
+    </Key>
+    <Property Name="NUMEMP" Type="number" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="NOMEMP" Type="varchar2" MaxLength="25" Nullable="false" />
+    <Property Name="PRENOMEMP" Type="varchar2" MaxLength="25" Nullable="false" />
+    <Property Name="POSTE" Type="varchar2" MaxLength="20" Nullable="false" />
+    <Property Name="SALAIRE" Type="number" Precision="8" Scale="2" Nullable="false" />
+    <Property Name="PRIME" Type="number" Precision="7" Scale="2" />
+    <Property Name="CODEPROJET" Type="char" MaxLength="4" />
+    <Property Name="SUPERIEUR" Type="number" Precision="38" Scale="0" />
+  </EntityType>
+  <EntityType Name="INSCRIT">
+    <Key>
+      <PropertyRef Name="NUMEMP" />
+      <PropertyRef Name="CODESEMI" />
+    </Key>
+    <Property Name="NUMEMP" Type="number" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="CODESEMI" Type="varchar2" MaxLength="10" Nullable="false" />
+    <Property Name="DATEINSCRIT" Type="date" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PARTICIPER">
+    <Key>
+      <PropertyRef Name="NUMEMP" />
+      <PropertyRef Name="CODESEMI" />
+      <PropertyRef Name="CODEJOUR" />
+    </Key>
+    <Property Name="NUMEMP" Type="number" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="CODESEMI" Type="varchar2" MaxLength="10" Nullable="false" />
+    <Property Name="CODEJOUR" Type="char" MaxLength="2" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PROJET">
+    <Key>
+      <PropertyRef Name="CODEPROJET" />
+    </Key>
+    <Property Name="CODEPROJET" Type="char" MaxLength="4" Nullable="false" />
+    <Property Name="NOMPROJET" Type="varchar2" MaxLength="20" Nullable="false" />
+    <Property Name="DEBUTPROJ" Type="date" Nullable="false" />
+    <Property Name="FINPREVUE" Type="date" Nullable="false" />
+    <Property Name="NOMCONTACT" Type="varchar2" MaxLength="35" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SEMINAIRE">
+    <Key>
+      <PropertyRef Name="CODESEMI" />
+    </Key>
+    <Property Name="CODESEMI" Type="varchar2" MaxLength="10" Nullable="false" />
+    <Property Name="CODECOURS" Type="varchar2" MaxLength="6" Nullable="false" />
+    <Property Name="DATEDEBUTSEM" Type="date" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_EMPLOYE_EMPLOYE">
+    <End Role="EMPLOYE" Type="Self.EMPLOYE" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="EMPLOYE1" Type="Self.EMPLOYE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EMPLOYE">
+        <PropertyRef Name="NUMEMP" />
+      </Principal>
+      <Dependent Role="EMPLOYE1">
+        <PropertyRef Name="SUPERIEUR" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EMPLOYE_PROJET">
+    <End Role="PROJET" Type="Self.PROJET" Multiplicity="0..1" />
+    <End Role="EMPLOYE" Type="Self.EMPLOYE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PROJET">
+        <PropertyRef Name="CODEPROJET" />
+      </Principal>
+      <Dependent Role="EMPLOYE">
+        <PropertyRef Name="CODEPROJET" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_INSCRIT_EMPLOYE">
+    <End Role="EMPLOYE" Type="Self.EMPLOYE" Multiplicity="1" />
+    <End Role="INSCRIT" Type="Self.INSCRIT" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EMPLOYE">
+        <PropertyRef Name="NUMEMP" />
+      </Principal>
+      <Dependent Role="INSCRIT">
+        <PropertyRef Name="NUMEMP" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_INSCRIT_SEMINAIRE">
+    <End Role="SEMINAIRE" Type="Self.SEMINAIRE" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="INSCRIT" Type="Self.INSCRIT" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SEMINAIRE">
+        <PropertyRef Name="CODESEMI" />
+      </Principal>
+      <Dependent Role="INSCRIT">
+        <PropertyRef Name="CODESEMI" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PARTICIPER_INSCRIT">
+    <End Role="INSCRIT" Type="Self.INSCRIT" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="PARTICIPER" Type="Self.PARTICIPER" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="INSCRIT">
+        <PropertyRef Name="CODESEMI" />
+        <PropertyRef Name="NUMEMP" />
+      </Principal>
+      <Dependent Role="PARTICIPER">
+        <PropertyRef Name="CODESEMI" />
+        <PropertyRef Name="NUMEMP" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SEMINAIRE_COURS">
+    <End Role="COURS" Type="Self.COURS" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="SEMINAIRE" Type="Self.SEMINAIRE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="COURS">
+        <PropertyRef Name="CODECOURS" />
+      </Principal>
+      <Dependent Role="SEMINAIRE">
+        <PropertyRef Name="CODECOURS" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="CoursAdoModelStoreContainer">
+    <EntitySet Name="COURS" EntityType="Self.COURS" Schema="BOTTESQL" store:Type="Tables" />
+    <EntitySet Name="EMPLOYE" EntityType="Self.EMPLOYE" Schema="BOTTESQL" store:Type="Tables" />
+    <EntitySet Name="INSCRIT" EntityType="Self.INSCRIT" Schema="BOTTESQL" store:Type="Tables" />
+    <EntitySet Name="PARTICIPER" EntityType="Self.PARTICIPER" Schema="BOTTESQL" store:Type="Tables" />
+    <EntitySet Name="PROJET" EntityType="Self.PROJET" Schema="BOTTESQL" store:Type="Tables" />
+    <EntitySet Name="SEMINAIRE" EntityType="Self.SEMINAIRE" Schema="BOTTESQL" store:Type="Tables" />
+    <AssociationSet Name="FK_EMPLOYE_EMPLOYE" Association="Self.FK_EMPLOYE_EMPLOYE">
+      <End Role="EMPLOYE" EntitySet="EMPLOYE" />
+      <End Role="EMPLOYE1" EntitySet="EMPLOYE" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EMPLOYE_PROJET" Association="Self.FK_EMPLOYE_PROJET">
+      <End Role="PROJET" EntitySet="PROJET" />
+      <End Role="EMPLOYE" EntitySet="EMPLOYE" />
+    </AssociationSet>
+    <AssociationSet Name="FK_INSCRIT_EMPLOYE" Association="Self.FK_INSCRIT_EMPLOYE">
+      <End Role="EMPLOYE" EntitySet="EMPLOYE" />
+      <End Role="INSCRIT" EntitySet="INSCRIT" />
+    </AssociationSet>
+    <AssociationSet Name="FK_INSCRIT_SEMINAIRE" Association="Self.FK_INSCRIT_SEMINAIRE">
+      <End Role="SEMINAIRE" EntitySet="SEMINAIRE" />
+      <End Role="INSCRIT" EntitySet="INSCRIT" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PARTICIPER_INSCRIT" Association="Self.FK_PARTICIPER_INSCRIT">
+      <End Role="INSCRIT" EntitySet="INSCRIT" />
+      <End Role="PARTICIPER" EntitySet="PARTICIPER" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SEMINAIRE_COURS" Association="Self.FK_SEMINAIRE_COURS">
+      <End Role="COURS" EntitySet="COURS" />
+      <End Role="SEMINAIRE" EntitySet="SEMINAIRE" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

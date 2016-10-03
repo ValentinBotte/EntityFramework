@@ -1,0 +1,12 @@
+c:\users\botte.v\documents\visual studio 2015\Projects\EntityFrameworkSLAM\EntityFrameworkSLAM\bin\Debug\EntityFrameworkSLAM.exe.config
+c:\users\botte.v\documents\visual studio 2015\Projects\EntityFrameworkSLAM\EntityFrameworkSLAM\bin\Debug\EntityFrameworkSLAM.exe
+c:\users\botte.v\documents\visual studio 2015\Projects\EntityFrameworkSLAM\EntityFrameworkSLAM\bin\Debug\EntityFrameworkSLAM.pdb
+c:\users\botte.v\documents\visual studio 2015\Projects\EntityFrameworkSLAM\EntityFrameworkSLAM\bin\Debug\EntityFramework.dll
+c:\users\botte.v\documents\visual studio 2015\Projects\EntityFrameworkSLAM\EntityFrameworkSLAM\bin\Debug\EntityFramework.SqlServer.dll
+c:\users\botte.v\documents\visual studio 2015\Projects\EntityFrameworkSLAM\EntityFrameworkSLAM\bin\Debug\Oracle.ManagedDataAccess.dll
+c:\users\botte.v\documents\visual studio 2015\Projects\EntityFrameworkSLAM\EntityFrameworkSLAM\bin\Debug\Oracle.ManagedDataAccess.EntityFramework.dll
+c:\users\botte.v\documents\visual studio 2015\Projects\EntityFrameworkSLAM\EntityFrameworkSLAM\bin\Debug\EntityFramework.xml
+c:\users\botte.v\documents\visual studio 2015\Projects\EntityFrameworkSLAM\EntityFrameworkSLAM\bin\Debug\EntityFramework.SqlServer.xml
+c:\users\botte.v\documents\visual studio 2015\Projects\EntityFrameworkSLAM\EntityFrameworkSLAM\obj\Debug\EntityFrameworkOracle.csprojResolveAssemblyReference.cache
+c:\users\botte.v\documents\visual studio 2015\Projects\EntityFrameworkSLAM\EntityFrameworkSLAM\obj\Debug\EntityFrameworkSLAM.exe
+c:\users\botte.v\documents\visual studio 2015\Projects\EntityFrameworkSLAM\EntityFrameworkSLAM\obj\Debug\EntityFrameworkSLAM.pdb

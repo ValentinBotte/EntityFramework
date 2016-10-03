@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="CoursAdoModelStoreContainer" CdmEntityContainer="OracleEntities">
+    <EntitySetMapping Name="COURS">
+      <EntityTypeMapping TypeName="CoursAdoModel.COUR">
+        <MappingFragment StoreEntitySet="COURS">
+          <ScalarProperty Name="CODECOURS" ColumnName="CODECOURS" />
+          <ScalarProperty Name="LIBELLECOURS" ColumnName="LIBELLECOURS" />
+          <ScalarProperty Name="NBJOURS" ColumnName="NBJOURS" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EMPLOYEs">
+      <EntityTypeMapping TypeName="CoursAdoModel.EMPLOYE">
+        <MappingFragment StoreEntitySet="EMPLOYE">
+          <ScalarProperty Name="NUMEMP" ColumnName="NUMEMP" />
+          <ScalarProperty Name="NOMEMP" ColumnName="NOMEMP" />
+          <ScalarProperty Name="PRENOMEMP" ColumnName="PRENOMEMP" />
+          <ScalarProperty Name="POSTE" ColumnName="POSTE" />
+          <ScalarProperty Name="SALAIRE" ColumnName="SALAIRE" />
+          <ScalarProperty Name="PRIME" ColumnName="PRIME" />
+          <ScalarProperty Name="CODEPROJET" ColumnName="CODEPROJET" />
+          <ScalarProperty Name="SUPERIEUR" ColumnName="SUPERIEUR" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="INSCRITs">
+      <EntityTypeMapping TypeName="CoursAdoModel.INSCRIT">
+        <MappingFragment StoreEntitySet="INSCRIT">
+          <ScalarProperty Name="NUMEMP" ColumnName="NUMEMP" />
+          <ScalarProperty Name="CODESEMI" ColumnName="CODESEMI" />
+          <ScalarProperty Name="DATEINSCRIT" ColumnName="DATEINSCRIT" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PARTICIPERs">
+      <EntityTypeMapping TypeName="CoursAdoModel.PARTICIPER">
+        <MappingFragment StoreEntitySet="PARTICIPER">
+          <ScalarProperty Name="NUMEMP" ColumnName="NUMEMP" />
+          <ScalarProperty Name="CODESEMI" ColumnName="CODESEMI" />
+          <ScalarProperty Name="CODEJOUR" ColumnName="CODEJOUR" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PROJETs">
+      <EntityTypeMapping TypeName="CoursAdoModel.PROJET">
+        <MappingFragment StoreEntitySet="PROJET">
+          <ScalarProperty Name="CODEPROJET" ColumnName="CODEPROJET" />
+          <ScalarProperty Name="NOMPROJET" ColumnName="NOMPROJET" />
+          <ScalarProperty Name="DEBUTPROJ" ColumnName="DEBUTPROJ" />
+          <ScalarProperty Name="FINPREVUE" ColumnName="FINPREVUE" />
+          <ScalarProperty Name="NOMCONTACT" ColumnName="NOMCONTACT" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SEMINAIREs">
+      <EntityTypeMapping TypeName="CoursAdoModel.SEMINAIRE">
+        <MappingFragment StoreEntitySet="SEMINAIRE">
+          <ScalarProperty Name="CODESEMI" ColumnName="CODESEMI" />
+          <ScalarProperty Name="CODECOURS" ColumnName="CODECOURS" />
+          <ScalarProperty Name="DATEDEBUTSEM" ColumnName="DATEDEBUTSEM" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
