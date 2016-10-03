@@ -104,6 +104,27 @@ namespace EntityFrameworkSLAM
                 }
 
 
+                // Mise à jour des données
+
+                var idEmp = 200;
+                var emp = oracleContexte.EMPLOYEs.Find(idEmp);
+                
+               
+
+                if (emp != null)
+                {
+                    emp.SALAIRE = emp.SALAIRE * (decimal)1.1;
+                    oracleContexte.SaveChanges();
+                    Console.WriteLine("Le nouveau salaire = " + emp.SALAIRE);
+                }
+                else
+                {
+                    Console.WriteLine("L'employé numéro " + idEmp + " n'existe pas.");
+                }
+
+
+
+
 
             }
 
