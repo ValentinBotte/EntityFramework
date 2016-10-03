@@ -10,6 +10,9 @@ namespace EntityFrameworkSLAM
     {
         static void Main(string[] args)
         {
+
+
+
         }
     }
 }

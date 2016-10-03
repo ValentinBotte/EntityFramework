@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="8ae093d6b590491d873252037b2ab5f6" Name="Diagram1">
+        <EntityTypeShape EntityType="CoursAdoModel.COUR" Width="1.5" PointX="0.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CoursAdoModel.EMPLOYE" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="CoursAdoModel.INSCRIT" Width="1.5" PointX="5.25" PointY="1.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="CoursAdoModel.PARTICIPER" Width="1.5" PointX="7.5" PointY="1.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CoursAdoModel.PROJET" Width="1.5" PointX="0.75" PointY="1.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="CoursAdoModel.SEMINAIRE" Width="1.5" PointX="3" PointY="5.625" IsExpanded="true" />
+        <AssociationConnector Association="CoursAdoModel.FK_SEMINAIRE_COURS" ManuallyRouted="false" />
+        <AssociationConnector Association="CoursAdoModel.FK_EMPLOYE_EMPLOYE" ManuallyRouted="false" />
+        <AssociationConnector Association="CoursAdoModel.FK_EMPLOYE_PROJET" ManuallyRouted="false" />
+        <AssociationConnector Association="CoursAdoModel.FK_INSCRIT_EMPLOYE" ManuallyRouted="false" />
+        <AssociationConnector Association="CoursAdoModel.FK_INSCRIT_SEMINAIRE" ManuallyRouted="false" />
+        <AssociationConnector Association="CoursAdoModel.FK_PARTICIPER_INSCRIT" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
