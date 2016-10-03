@@ -123,6 +123,16 @@ namespace EntityFrameworkSLAM
                 }
 
 
+                // Création de l'objet cours 
+
+                COUR unCours = new COUR();
+                unCours.CODECOURS = "BR099";
+                unCours.LIBELLECOURS = "Entity framework 6 avec oracle";
+                unCours.NBJOURS = 4;
+                oracleContexte.COURS.Add(unCours);
+                oracleContexte.SaveChanges();
+                Console.WriteLine("Le cours a été crée");
+
 
 
 
