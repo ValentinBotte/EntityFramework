@@ -46,14 +46,14 @@ namespace EntityFrameworkSLAM
                                             select EMPLOYE;
 
                 var employeId = requeteEmployesById.First();
-                Console.Write(employeId.NOMEMP + " - " + employeId.PRENOMEMP + " - " + employeId.SALAIRE);
+                Console.WriteLine(employeId.NOMEMP + " - " + employeId.PRENOMEMP + " - " + employeId.SALAIRE);
 
                 Console.WriteLine("-----------------------------------");
 
                 var idEmployeBis = 33;
                 var requeteEmployesByIdBis = from EMPLOYE in oracleContexte.EMPLOYEs
-                                          where EMPLOYE.NUMEMP == idEmployeBis
-                                          select EMPLOYE;
+                                             where EMPLOYE.NUMEMP == idEmployeBis
+                                             select EMPLOYE;
 
                 var employeIdBis = requeteEmployesByIdBis.FirstOrDefault();
 
@@ -62,10 +62,20 @@ namespace EntityFrameworkSLAM
                     Console.Write(employeIdBis.NOMEMP + " - " + employeIdBis.PRENOMEMP + " - " + employeIdBis.SALAIRE);
                 }else
                 {
-                    Console.WriteLine("L'employé numéro " + idEmploye + " n'existe pas.");
+                    Console.WriteLine("L'employé numéro " + idEmployeBis + " n'existe pas.");
                 }
 
-                
+                Console.WriteLine("----------------> JOINTURE <------------------");
+
+                var requete = from s in oracleContexte.SEMINAIREs
+                              join COUR in oracleContexte.COURS on s.CODECOURS equals COUR.CODECOURS
+                              select s;
+                var lesSeminaires = requete.ToList();
+
+                foreach(var unSeminaire in lesSeminaires)
+                {
+                    Console.WriteLine(unSeminaire.CODESEMI + " - " + unSeminaire.CODECOURS + " - " + unSeminaire.COUR.LIBELLECOURS);
+                }
 
             }
 
