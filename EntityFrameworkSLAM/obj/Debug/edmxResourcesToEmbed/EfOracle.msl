@@ -4,6 +4,7 @@
     <EntitySetMapping Name="COURS">
       <EntityTypeMapping TypeName="CoursAdoModel.COUR">
         <MappingFragment StoreEntitySet="COURS">
+          <ScalarProperty Name="TARIF" ColumnName="TARIF" />
           <ScalarProperty Name="CODECOURS" ColumnName="CODECOURS" />
           <ScalarProperty Name="LIBELLECOURS" ColumnName="LIBELLECOURS" />
           <ScalarProperty Name="NBJOURS" ColumnName="NBJOURS" />

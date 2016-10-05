@@ -7,6 +7,7 @@
     <Property Name="CODECOURS" Type="varchar2" MaxLength="6" Nullable="false" />
     <Property Name="LIBELLECOURS" Type="varchar2" MaxLength="35" Nullable="false" />
     <Property Name="NBJOURS" Type="number" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="TARIF" Type="number" Precision="6" Scale="2" Nullable="false" />
   </EntityType>
   <EntityType Name="EMPLOYE">
     <Key>

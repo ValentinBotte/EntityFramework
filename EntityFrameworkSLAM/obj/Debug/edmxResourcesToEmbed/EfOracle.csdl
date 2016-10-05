@@ -8,6 +8,7 @@
     <Property Name="LIBELLECOURS" Type="String" MaxLength="35" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="NBJOURS" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
     <NavigationProperty Name="SEMINAIREs" Relationship="Self.FK_SEMINAIRE_COURS" FromRole="COURS" ToRole="SEMINAIRE" />
+    <Property Name="TARIF" Type="Decimal" Nullable="false" Precision="6" Scale="2" />
   </EntityType>
   <EntityType Name="EMPLOYE">
     <Key>

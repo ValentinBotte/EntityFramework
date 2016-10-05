@@ -22,12 +22,13 @@ namespace EntityFrameworkSLAM
 
         public override string ToString()
         {
-            return "Cours N°" + CODECOURS + " | LibelleCours = " + LIBELLECOURS + " | NbJours = " + NBJOURS;
+            return "Cours N°" + CODECOURS + " | LibelleCours = " + LIBELLECOURS + " | NbJours = " + NBJOURS + " | Tarif = " + TARIF;
         }
 
         public string CODECOURS { get; set; }
         public string LIBELLECOURS { get; set; }
         public decimal NBJOURS { get; set; }
+        public decimal TARIF { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<SEMINAIRE> SEMINAIREs { get; set; }

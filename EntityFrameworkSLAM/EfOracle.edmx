@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="CoursAdoModel.Store" Provider="Oracle.ManagedDataAccess.Client" ProviderManifestToken="11.2" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="CoursAdoModel.Store" Provider="Oracle.ManagedDataAccess.Client" ProviderManifestToken="11.2" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="COURS">
           <Key>
             <PropertyRef Name="CODECOURS" />
@@ -12,6 +12,7 @@
           <Property Name="CODECOURS" Type="varchar2" MaxLength="6" Nullable="false" />
           <Property Name="LIBELLECOURS" Type="varchar2" MaxLength="35" Nullable="false" />
           <Property Name="NBJOURS" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="TARIF" Type="number" Precision="6" Scale="2" Nullable="false" />
         </EntityType>
         <EntityType Name="EMPLOYE">
           <Key>
@@ -177,8 +178,7 @@
             <End Role="SEMINAIRE" EntitySet="SEMINAIRE" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="CoursAdoModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -190,6 +190,7 @@
           <Property Name="LIBELLECOURS" Type="String" MaxLength="35" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="NBJOURS" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
           <NavigationProperty Name="SEMINAIREs" Relationship="Self.FK_SEMINAIRE_COURS" FromRole="COURS" ToRole="SEMINAIRE" />
+          <Property Name="TARIF" Type="Decimal" Nullable="false" Precision="6" Scale="2" />
         </EntityType>
         <EntityType Name="EMPLOYE">
           <Key>
@@ -375,6 +376,7 @@
           <EntitySetMapping Name="COURS">
             <EntityTypeMapping TypeName="CoursAdoModel.COUR">
               <MappingFragment StoreEntitySet="COURS">
+                <ScalarProperty Name="TARIF" ColumnName="TARIF" />
                 <ScalarProperty Name="CODECOURS" ColumnName="CODECOURS" />
                 <ScalarProperty Name="LIBELLECOURS" ColumnName="LIBELLECOURS" />
                 <ScalarProperty Name="NBJOURS" ColumnName="NBJOURS" />
