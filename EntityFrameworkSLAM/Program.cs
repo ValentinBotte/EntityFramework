@@ -24,7 +24,11 @@ namespace EntityFrameworkSLAM
                     Console.WriteLine(unEmploye.NUMEMP + " - " + unEmploye.NOMEMP);
                 }
 
-                Console.WriteLine("-----------------------------------");
+                Console.ForegroundColor = ConsoleColor.Green;
+                Console.WriteLine("---------------------------------------------------------");
+                Console.WriteLine("-------------------TOUS LES EMPLOYES DU CODE PR1---------");
+                Console.WriteLine("---------------------------------------------------------");
+                Console.ForegroundColor = ConsoleColor.White;
 
                 var unCodeProjet = "PR1";
                 var requeteEmployesProjet = from EMPLOYE in oracleContexte.EMPLOYEs
@@ -38,7 +42,11 @@ namespace EntityFrameworkSLAM
                     Console.WriteLine(unEmploye.ToString());
                 }
 
-                Console.WriteLine("-----------------------------------");
+                Console.ForegroundColor = ConsoleColor.Green;
+                Console.WriteLine("---------------------------------------------------------");
+                Console.WriteLine("-------------------ID EMPLOYE 3--------------------------");
+                Console.WriteLine("---------------------------------------------------------");
+                Console.ForegroundColor = ConsoleColor.White;
 
                 var idEmploye = 3;
                 var requeteEmployesById = from EMPLOYE in oracleContexte.EMPLOYEs
@@ -48,7 +56,11 @@ namespace EntityFrameworkSLAM
                 var employeId = requeteEmployesById.First();
                 Console.WriteLine(employeId.NOMEMP + " - " + employeId.PRENOMEMP + " - " + employeId.SALAIRE);
 
-                Console.WriteLine("-----------------------------------");
+                Console.ForegroundColor = ConsoleColor.Green;
+                Console.WriteLine("---------------------------------------------------------");
+                Console.WriteLine("-------------------ID EMPLOYE 33-------------------------");
+                Console.WriteLine("---------------------------------------------------------");
+                Console.ForegroundColor = ConsoleColor.White;
 
                 var idEmployeBis = 33;
                 var requeteEmployesByIdBis = from EMPLOYE in oracleContexte.EMPLOYEs
@@ -65,7 +77,11 @@ namespace EntityFrameworkSLAM
                     Console.WriteLine("L'employé numéro " + idEmployeBis + " n'existe pas.");
                 }
 
-                Console.WriteLine("----------------> JOINTURE <------------------");
+                Console.ForegroundColor = ConsoleColor.Green;
+                Console.WriteLine("---------------------------------------------------------");
+                Console.WriteLine("-------------------JOINTURE------------------------------");
+                Console.WriteLine("---------------------------------------------------------");
+                Console.ForegroundColor = ConsoleColor.White;
 
                 var requete = from s in oracleContexte.SEMINAIREs
                               join COUR in oracleContexte.COURS on s.CODECOURS equals COUR.CODECOURS

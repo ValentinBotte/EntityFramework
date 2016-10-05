@@ -19,7 +19,12 @@ namespace EntityFrameworkSLAM
         {
             this.SEMINAIREs = new HashSet<SEMINAIRE>();
         }
-    
+
+        public override string ToString()
+        {
+            return "Cours N°" + CODECOURS + " | LibelleCours = " + LIBELLECOURS + " | NbJours = " + NBJOURS;
+        }
+
         public string CODECOURS { get; set; }
         public string LIBELLECOURS { get; set; }
         public decimal NBJOURS { get; set; }
