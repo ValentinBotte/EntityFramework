@@ -20,7 +20,12 @@ namespace EntityFrameworkSLAM
             this.EMPLOYE1 = new HashSet<EMPLOYE>();
             this.INSCRITs = new HashSet<INSCRIT>();
         }
-    
+
+        public override string ToString()
+        {
+            return "Employe n°" + NUMEMP + " | Nom = " + NOMEMP + " | Prenom = " + PRENOMEMP + " | Poste = " + POSTE + " | Salaire = " + SALAIRE + " | Prime = " + ((PRIME == null) ? 0 : PRIME) + " | Code projet = " + CODEPROJET + " | Superieur = " + ((SUPERIEUR == null) ? 0 : SUPERIEUR);
+        }
+
         public decimal NUMEMP { get; set; }
         public string NOMEMP { get; set; }
         public string PRENOMEMP { get; set; }
